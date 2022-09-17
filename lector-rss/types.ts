@@ -25,4 +25,5 @@ export type ArticleResponse = {
 	status: string;
 	totalResults: number;
 	articles: Article[];
+	message?: string;
 };

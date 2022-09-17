@@ -3,6 +3,7 @@ import React from 'react';
 import { Article, TopNewsStackNavigatorParamsList } from '../types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
+import { saveArticleInStorage } from '../helpers/SaveArticle';
 
 type Props = {
 	article: Article;
@@ -10,14 +11,17 @@ type Props = {
 
 const ArticleCard = ({ article }: Props) => {
 	const navigation = useNavigation<NativeStackNavigationProp<TopNewsStackNavigatorParamsList>>();
+	const saveArticleAndNavigate = async () => {
+		await saveArticleInStorage(article);
+		navigation.navigate('ArticleDetails');
+	};
 	return (
-		<Pressable onPress={() => navigation.navigate('ArticleDetails')}>
+		<Pressable onPress={saveArticleAndNavigate}>
 			<View style={styles.cardContainer}>
 				<Image source={{ uri: article.urlToImage }} style={styles.cardImage} />
 				<Text style={styles.cardTitle}> {article.title} </Text>
 				<Text style={styles.cardDescription} numberOfLines={2}>
-					{' '}
-					{article.description}{' '}
+					{article.description}
 				</Text>
 			</View>
 		</Pressable>
