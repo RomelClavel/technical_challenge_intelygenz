@@ -6,6 +6,8 @@ import TopNewsScreen from '../screens/TopNewsScreen';
 import SearchNewsScreen from '../screens/SearchNewsScreen';
 import TopNewsStackNavigator from './TopNewsStackNavigator';
 import SearchNewsStackNavigator from './SearchNewsStackNavigator';
+import SearchIcon from '../assets/icons/SearchIcon';
+import NewsIcon from '../assets/icons/NewsIcon';
 
 const BottomTab = createBottomTabNavigator<BottomTabNavigationParamsList>();
 
@@ -14,16 +16,17 @@ const BottomTabNavigator = () => {
 		<NavigationContainer>
 			<BottomTab.Navigator
 				initialRouteName="TopNews"
-				// screenOptions={{
-				// 	tabBarActiveTintColor: Colors[colorScheme].tint,
-				// }}
+				screenOptions={{
+					// tabBarActiveTintColor: Colors[colorScheme].tint,
+					headerShown: false,
+				}}
 			>
 				<BottomTab.Screen
 					name="TopNews"
 					component={TopNewsStackNavigator}
 					options={{
 						title: 'Top News',
-						// tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+						tabBarIcon: ({ color }) => <NewsIcon size={32} color={color} />,
 					}}
 				/>
 
@@ -32,7 +35,7 @@ const BottomTabNavigator = () => {
 					component={SearchNewsStackNavigator}
 					options={{
 						title: 'Search News',
-						// tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+						tabBarIcon: ({ color }) => <SearchIcon size={32} color={color} />,
 					}}
 				/>
 			</BottomTab.Navigator>
