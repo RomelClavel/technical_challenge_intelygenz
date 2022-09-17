@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { Article, TopNewsStackNavigatorParamsList } from '../types';
 import { getTopArticles } from '../services/NewsService';
+import ArticleList from '../components/ArticleList';
 
 type Props = {
 	navigation: NativeStackNavigationProp<TopNewsStackNavigatorParamsList, 'News'>;
@@ -36,10 +37,16 @@ const TopNewsScreen = ({ navigation }: Props) => {
 	}, []);
 
 	return (
-		<View>{articles.length > 0 ? <Text>Show Shit</Text> : <Text>No Articles Found</Text>}</View>
+		<View style={styles.container}>
+			{articles.length > 0 ? <ArticleList articles={articles} /> : <Text>No Articles Found</Text>}
+		</View>
 	);
 };
 
 export default TopNewsScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+	},
+});

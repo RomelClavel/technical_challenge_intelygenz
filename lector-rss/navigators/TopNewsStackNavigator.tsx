@@ -8,8 +8,16 @@ const StackNavigator = createNativeStackNavigator<TopNewsStackNavigatorParamsLis
 const TopNewsStackNavigator = () => {
 	return (
 		<StackNavigator.Navigator>
-			<StackNavigator.Screen name="News" component={TopNewsScreen} />
-			<StackNavigator.Screen name="ArticleDetails" component={ArticleDetailsScreen} />
+			<StackNavigator.Screen
+				name="News"
+				component={TopNewsScreen}
+				options={{ title: 'Top News' }}
+			/>
+			<StackNavigator.Screen
+				name="ArticleDetails"
+				component={ArticleDetailsScreen}
+				options={{ title: 'Article Details' }}
+			/>
 		</StackNavigator.Navigator>
 	);
 };
