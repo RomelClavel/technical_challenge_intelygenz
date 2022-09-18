@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-const LinkIcon = ({ size = 40, color = 'c1c1c1' }) => {
+const LinkIcon = ({ size = 40, color = '#C1C1C1' }) => {
 	return (
 		<Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
 			<Path
