@@ -9,7 +9,7 @@ type Props = {
 	navigation: NativeStackNavigationProp<TopNewsStackNavigatorParamsList, 'News'>;
 };
 
-const TopNewsScreen = ({ navigation }: Props) => {
+const TopNewsScreen = () => {
 	const [articles, setArticles] = useState<Article[]>([
 		// {
 		// 	title:

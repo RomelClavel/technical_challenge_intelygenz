@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Article } from '../types';
 import LinkIcon from '../assets/icons/LinkIcon';
+import { getSavedArticle } from '../store/articleStorage';
 
 const ArticleDetailsScreen = () => {
 	const [detailedArticle, setDetailedArticle] = useState<Article>();
@@ -15,15 +16,11 @@ const ArticleDetailsScreen = () => {
 	};
 	useEffect(() => {
 		const getDetailedArticle = async () => {
-			try {
-				const value = await AsyncStorage.getItem('detailed-article-key');
-				if (value !== null) {
-					// value previously stored
-					const article = JSON.parse(value);
-					setDetailedArticle(article);
-				}
-			} catch (e) {
-				console.error(e);
+			const savedArticle = await getSavedArticle();
+			if (typeof savedArticle !== 'string') {
+				setDetailedArticle(savedArticle);
+			} else {
+				console.log(savedArticle);
 			}
 		};
 		getDetailedArticle();

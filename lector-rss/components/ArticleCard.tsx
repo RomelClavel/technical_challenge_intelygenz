@@ -3,7 +3,7 @@ import React from 'react';
 import { Article, TopNewsStackNavigatorParamsList } from '../types';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import { saveArticleInStorage } from '../helpers/SaveArticle';
+import { saveArticleInStorage } from '../store/articleStorage';
 
 type Props = {
 	article: Article;
