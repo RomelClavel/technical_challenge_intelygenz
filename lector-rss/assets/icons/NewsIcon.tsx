@@ -1,7 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-const NewsIcon = ({ size = 40, color = 'c1c1c1' }) => {
+const NewsIcon = ({ size = 40, color = '#C1C1C1' }) => {
 	return (
 		<Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
 			<Path

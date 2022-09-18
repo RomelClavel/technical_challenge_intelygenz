@@ -23,6 +23,9 @@ const ArticleCard = ({ article }: Props) => {
 				<Text style={styles.cardDescription} numberOfLines={2}>
 					{article.description}
 				</Text>
+				<Text style={styles.dateText}>
+					{article.publishedAt?.replace('T', ' ')?.replace('Z', '')}
+				</Text>
 			</View>
 		</Pressable>
 	);
@@ -51,5 +54,9 @@ const styles = StyleSheet.create({
 		marginBottom: 6,
 		paddingHorizontal: 4,
 		textAlign: 'justify',
+	},
+	dateText: {
+		alignSelf: 'flex-end',
+		color: '#BBBBBB',
 	},
 });

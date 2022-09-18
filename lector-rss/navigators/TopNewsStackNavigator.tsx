@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import ArticleDetailsScreen from '../screens/ArticleDetailsScreen';
 import TopNewsScreen from '../screens/TopNewsScreen';
