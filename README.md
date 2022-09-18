@@ -2,6 +2,20 @@
 
 Decided to keep the API key for ease of revisions. Didn't have to input any sensible info to obtain it. It blocks after making to many requests.
 
+## How to Run
+
+        git clone https://github.com/RomelClavel/technical_challenge_intelygenz.git
+        cd lector-rss
+        npm install
+
+        // To run on dev mode
+        npx expo start
+
+        // To run on production
+        npx expo start --no-dev --minify
+
+        // After that scan the QR code with the Expo app and you're ready to go
+
 ## Third Party Libraries
 
 ### Dev Dependencies
