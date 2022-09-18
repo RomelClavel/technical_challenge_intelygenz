@@ -1,4 +1,5 @@
 import { newApiKey } from '../apiKeys';
+import { cacheFetchedArticles, getCachedArticles } from '../store/articleStorage';
 import { Article, ArticleResponse } from '../types';
 
 export const getTopArticles = async (): Promise<string | Article[]> => {
@@ -8,15 +9,16 @@ export const getTopArticles = async (): Promise<string | Article[]> => {
 		);
 		const data: ArticleResponse = await result.json();
 
-		console.log(data);
-		console.log(data.articles);
 		if (data.status === 'ok') {
+			cacheFetchedArticles(data.articles);
 			return data.articles;
 		} else {
 			return data.message!;
 		}
 	} catch (error) {
 		console.error(error);
-		return error as string;
+		const cachedArticles = await getCachedArticles();
+		if (typeof cachedArticles === 'string') return cachedArticles;
+		return cachedArticles;
 	}
 };
