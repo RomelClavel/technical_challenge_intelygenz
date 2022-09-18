@@ -7,6 +7,8 @@ import { getSavedArticle } from '../store/articleStorage';
 
 const ArticleDetailsScreen = () => {
 	const [detailedArticle, setDetailedArticle] = useState<Article>();
+
+	// Function that redirects the user to the article link on the browser
 	const goToURL = () => {
 		try {
 			Linking.openURL(detailedArticle?.url!);
@@ -14,10 +16,14 @@ const ArticleDetailsScreen = () => {
 			console.error(error);
 		}
 	};
+
+	// Effect that sets the state of the Article Details Screen to the previously stored Article
 	useEffect(() => {
 		const getDetailedArticle = async () => {
+			// We get the store
 			const savedArticle = await getSavedArticle();
 			if (typeof savedArticle !== 'string') {
+				// If its not an error message we set the state
 				setDetailedArticle(savedArticle);
 			} else {
 				console.log(savedArticle);

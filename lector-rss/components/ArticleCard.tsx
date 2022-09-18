@@ -9,8 +9,12 @@ type Props = {
 	article: Article;
 };
 
+// Renders the Article Card, showing summary info and allowing navigation to the Detailed Article View
 const ArticleCard = ({ article }: Props) => {
+	// We setup the navigation via the Use Navigation hook
 	const navigation = useNavigation<NativeStackNavigationProp<TopNewsStackNavigatorParamsList>>();
+
+	// Function that stores the click article information and navigates to the Article Details View
 	const saveArticleAndNavigate = async () => {
 		await saveArticleInStorage(article);
 		navigation.navigate('ArticleDetails');

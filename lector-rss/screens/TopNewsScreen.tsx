@@ -1,15 +1,17 @@
-import { Button, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Article, TopNewsStackNavigatorParamsList } from '../types';
+import { Article } from '../types';
 import { getTopArticles } from '../services/NewsService';
 import ArticleList from '../components/ArticleList';
-import SearchIcon from '../assets/icons/SearchIcon';
 import SearchArticles from '../components/SearchArticles';
 
 const TopNewsScreen = () => {
+	// State to store the response to the get articles service
 	const [articles, setArticles] = useState<Article[]>([]);
+	// State to manage the filtering and rendering of the articles
 	const [searchArticles, setSearchArticles] = useState<Article[]>([]);
+
+	// Effect that gets the articles via the service and sets the state
 	useEffect(() => {
 		const getArticles = async () => {
 			const result = await getTopArticles();
