@@ -1,5 +1,5 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { FlatList, StyleSheet } from 'react-native';
 import { Article } from '../types';
 import ArticleCard from './ArticleCard';
 
@@ -12,6 +12,7 @@ const ArticleList = ({ articles }: Props) => {
 		<FlatList
 			style={styles.container}
 			data={articles}
+			keyExtractor={(item) => item.url}
 			renderItem={({ item }) => <ArticleCard article={item} />}
 		/>
 	);
