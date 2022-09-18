@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import React from 'react';
-import { Article, TopNewsStackNavigatorParamsList } from '../types';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
+import { Article, TopNewsStackNavigatorParamsList } from '../types';
 import { saveArticleInStorage } from '../store/articleStorage';
 
 type Props = {
