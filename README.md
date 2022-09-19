@@ -35,3 +35,7 @@ Decided to keep the API key for ease of revisions. Didn't have to input any sens
 
 -   Offline functionality was implemented using the Expo Async Storage. All the logic is implemented in the store folder and its used in the News Service.
 -   The search by title bar can be seen in the Top News Section. Its implemented as its own component for reusability.
+
+## Interesting stuff that happened
+
+-   When I read the extra credit for the Search by title I tought that had to be done in a differet View, so I used Bottom tab navigation and configured It to work almost the same as the Top News Section. When I later read the extra credit more carefully I found out that the search was supposed to be done on the same View as the Article List.
